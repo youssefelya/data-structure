@@ -1,4 +1,3 @@
-
 public class LinkedList {
     class Node {
         int value;
@@ -13,10 +12,15 @@ public class LinkedList {
 
     public Node addLast(int val) {
         Node temp = root;
-        while (temp != null) {
+        if (root == null) {
+            Node newNode = new Node(val);
+            root = newNode;
+            return root;
+        }
+        while (temp.next != null) {
             temp = temp.next;
         }
-        temp = new Node(val);
+        temp.next = new Node(val);
         return root;
     }
 

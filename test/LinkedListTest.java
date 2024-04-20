@@ -1,3 +1,5 @@
+package test;
+
 import src.LinkedList;
 
 public class LinkedListTest {

@@ -1,18 +1,18 @@
 package src;
 
-class Node {
+class TreeNode {
     int value;
-    Node left, right;
+    TreeNode left, right;
 
-    Node(int v) {
+    TreeNode(int v) {
         this.value = v;
     }
 }
 
 public interface Tree {
-    Node add(int val);
+    TreeNode add(int val);
 
-    Node remove(int val);
+    TreeNode remove(int val);
 
     boolean isBinaryTree();
 

@@ -13,7 +13,7 @@ public class BinaryTreeTest {
 
     }
 
-    public static void addRandomValuesForTesting(Tree tree) {
+    public static void addRandomValuesForTesting(BinaryTree tree) {
         Random random = new Random();
         for (int i = 0; i < 100; i++) {
             int value = random.nextInt(1000) + 1;
@@ -24,11 +24,14 @@ public class BinaryTreeTest {
     public static void testAddBinaryTree() throws Exception {
         BinaryTree root = new BinaryTree();
         addRandomValuesForTesting(root);
+        root.add(2);
+        root.add(3);
+        root.add(9);
         if (!root.isBinaryTree())
             throw new Exception("Test failed: Not a binary tree");
         if (root.isRedBlackTree())
             throw new Exception("Test failed: Incorrect Red-Black tree check");
-        if (!root.isExist(2) || !root.isExist(6) || !root.isExist(3) || !root.isExist(9))
+        if (!root.isExist(2) || !root.isExist(3) || !root.isExist(9))
             throw new Exception("Test failed: Element not found");
         System.out.println("Test passed successfully");
     }

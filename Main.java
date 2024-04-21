@@ -10,6 +10,8 @@ public class Main {
         linkedList.addFirst(7);
         linkedList.addLast(10);
         linkedList.printLinkedList();
+        linkedList.reverse();
+        linkedList.printLinkedList();
 
     }
 

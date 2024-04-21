@@ -1,14 +1,17 @@
 package src;
 
-public class LinkedList {
-    class Node {
-        int value;
-        Node next;
+import java.util.Stack;
 
-        Node(int v) {
-            this.value = v;
-        }
+class Node {
+    int value;
+    Node next;
+
+    Node(int v) {
+        this.value = v;
     }
+}
+
+public class LinkedList {
 
     private Node root;
 
@@ -30,7 +33,7 @@ public class LinkedList {
         Node temp = new Node(val);
         temp.next = root;
         root = temp;
-        return root;
+        return temp;
     }
 
     public void printLinkedList() {
@@ -39,6 +42,41 @@ public class LinkedList {
             System.out.print(" " + temp.value);
             temp = temp.next;
         }
+        System.out.println();
+    }
+
+    public boolean in(int target) {
+        Node temp = this.root;
+        while (temp != null) {
+            if (temp.value == target)
+                return true;
+            temp = temp.next;
+        }
+        return false;
+    }
+
+    public Node reverse() {
+        if (root == null || root.next == null) {
+            return root;
+        }
+
+        Stack<Node> stack = new Stack<>();
+        Node temp = root;
+        while (temp != null) {
+            stack.push(temp);
+            temp = temp.next;
+        }
+
+        Node newRoot = stack.pop();
+        temp = newRoot;
+        while (!stack.isEmpty()) {
+            temp.next = stack.pop();
+            temp = temp.next;
+        }
+        temp.next = null;
+
+        root = newRoot;
+        return newRoot;
     }
 
 }

@@ -1,7 +1,5 @@
 package src;
 
-import java.util.Stack;
-
 class Node {
     int value;
     Node next;
@@ -16,12 +14,10 @@ public class LinkedList {
     private Node root;
 
     public Node addLast(int val) {
-
         return null;
     }
 
     public Node addFirst(int val) {
-
         return null;
     }
 

@@ -2,7 +2,7 @@ package src;
 
 public class BinaryTree implements Tree {
 
-    TreeNode root;
+    private TreeNode root;
 
     public TreeNode add(int val) {
         return null;

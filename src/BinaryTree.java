@@ -2,10 +2,28 @@ package src;
 
 public class BinaryTree implements Tree {
 
-    private TreeNode root;
+    TreeNode root;
 
     public TreeNode add(int val) {
-        return null;
+        if (root == null) {
+            root = new TreeNode(val);
+            return root;
+        }
+        return addRecursive(root, val);
+    }
+
+    private TreeNode addRecursive(TreeNode current, int val) {
+        if (current == null) {
+            return new TreeNode(val);
+        }
+
+        if (val < current.value) {
+            current.left = addRecursive(current.left, val);
+        } else {
+            current.right = addRecursive(current.right, val);
+        }
+
+        return current;
     }
 
     @Override
@@ -24,8 +42,22 @@ public class BinaryTree implements Tree {
     }
 
     public boolean isExist(int val) {
-        return false;
+        return isExistRecursive(root, val);
+    }
 
+    private boolean isExistRecursive(TreeNode current, int val) {
+        if (current == null) {
+            return false;
+        }
+        if (val == current.value) {
+            return true;
+        }
+
+        if (val < current.value) {
+            return isExistRecursive(current.left, val);
+        } else {
+            return isExistRecursive(current.right, val);
+        }
     }
 
 }

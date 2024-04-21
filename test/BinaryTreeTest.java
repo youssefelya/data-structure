@@ -13,7 +13,7 @@ public class BinaryTreeTest {
 
     }
 
-    public static void addRandomValuesForTesting(BinaryTree tree) {
+    private static void addRandomValuesForTesting(Tree tree) {
         Random random = new Random();
         for (int i = 0; i < 100; i++) {
             int value = random.nextInt(1000) + 1;
@@ -66,6 +66,26 @@ public class BinaryTreeTest {
 
         if (!root.isBinaryTree())
             throw new Exception("Test failed: Binary tree is not balanced");
+        System.out.println("Test passed successfully");
+    }
+
+    public static void testIsExist() throws Exception {
+        BinaryTree tree = new BinaryTree();
+        tree.add(5);
+        tree.add(3);
+        tree.add(7);
+        tree.add(2);
+        tree.add(4);
+        tree.add(6);
+        tree.add(8);
+
+        if (!tree.isExist(5) || !tree.isExist(3) || !tree.isExist(7) || !tree.isExist(2) || !tree.isExist(4)
+                || !tree.isExist(6) || !tree.isExist(8))
+            throw new Exception("Test failed: Existing value not found");
+
+        if (tree.isExist(10) || tree.isExist(1) || tree.isExist(9))
+            throw new Exception("Test failed: Non-existing value found");
+
         System.out.println("Test passed successfully");
     }
 

@@ -1,8 +1,14 @@
 package src;
 
+enum Color {
+    RED,
+    BLACK
+}
+
 class TreeNode {
     int value;
-    TreeNode left, right;
+    TreeNode left, right, parent;
+    Color color;
 
     TreeNode(int v) {
         this.value = v;

@@ -3,23 +3,24 @@ package src;
 import java.util.*;
 import java.util.LinkedList;
 
-class Node {
+class GraphNode {
     int value;
-    List<Node> neighbors;
+    List<GraphNode> neighbors;
 
-    Node(int v) {
+    GraphNode(int v) {
         this.value = v;
         this.neighbors = new ArrayList<>();
     }
 
-    public void addNeighbor(Node neighbor) {
+    // Method to add a neighbor to the current node
+    public void addNeighbor(GraphNode neighbor) {
         this.neighbors.add(neighbor);
     }
 }
 
 public class AdjacencyListGraph {
 
-    private List<Node> nodes;
+    private List<GraphNode> nodes;
 
     public AdjacencyListGraph() {
 
@@ -46,9 +47,9 @@ public class AdjacencyListGraph {
     }
 
     public void printGraph() {
-        for (Node node : nodes) {
-            System.out.print("Node " + node.value + " neighbors: ");
-            for (Node neighbor : node.neighbors) {
+        for (GraphNode node : nodes) {
+            System.out.print("GraphNode " + node.value + " neighbors: ");
+            for (GraphNode neighbor : node.neighbors) {
                 System.out.print(neighbor.value + " ");
             }
             System.out.println();
